@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -11,6 +11,7 @@ import { HeroesComponent } from './heroes/heroes.component';
     HeroesComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule
   ],
