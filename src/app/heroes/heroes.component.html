@@ -1,9 +1,21 @@
 <h2>My Heroes</h2>
 <ul class="list-group">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" class="list-group-item" [class.active]="hero === selectedHero">
+  <li *ngFor="let hero of heroes" class="row">
+    <a routerLink="/detail/{{hero.id}}" class="list-group-item col-11">
     <span class="badge badge-primary">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="btn btn-danger col-1" title="delete hero"
+            (click)="delete(hero)">x</button>
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<div class="mt-3">
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
 
